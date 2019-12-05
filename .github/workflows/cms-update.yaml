@@ -6,10 +6,12 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Run production deployment with new content
         uses: ./.github/workflows/deploy.yaml
   dev-deployment:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Run stage deployment with new content
         uses: ./.github/workflows/dev-deploy.yaml

@@ -33,5 +33,5 @@ jobs:
         run: NODE_ENV=production CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} npm run build
 
       - name: Deploy to now
-        run: now dist --token ${{ secrets.NOW_TOKEN }} --local-config ../now.prod.json
+        run: now dist --prod --token ${{ secrets.NOW_TOKEN }} --local-config ../now.json
   

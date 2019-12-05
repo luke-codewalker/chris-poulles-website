@@ -4,10 +4,12 @@ on: repository_dispatch
 
 jobs:
   deployment:
+    runs-on: ubuntu-latest
     steps:
       - name: Run production deployment with new content
         uses: ./.github/workflows/deploy
   dev-deployment:
+    runs-on: ubuntu-latest
     steps:
       - name: Run stage deployment with new content
         uses: ./.github/workflows/dev-deploy

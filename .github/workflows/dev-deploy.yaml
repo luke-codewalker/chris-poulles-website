@@ -1,7 +1,7 @@
 name: Staging Deployment
 
 on: 
-  repository_dispatch
+  repository_dispatch:
   push:
     branches:
       - develop

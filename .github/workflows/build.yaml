@@ -1,0 +1,36 @@
+name: Deploy to the staging server
+
+on: 
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1.1.0
+        with: 
+          node-version: 10.x
+
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Dependencies (if not in cache)
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Build
+        run: NODE_ENV=production npm run build
+
+      - name: Deploy to now
+        run: now dist --token ${{ secrets.NOW_TOKEN }} --local-config ../now.json
+  

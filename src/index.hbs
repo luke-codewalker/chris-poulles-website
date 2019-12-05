@@ -1,14 +1,19 @@
 {{> baseLayout}}
-{{#*inline "content"}}
+{{#*inline "body"}}
+{{> header}}
 {{#with htmlWebpackPlugin.options.data}}
-<h2>Fiction</h2>
-{{#each films.fiction}}
-{{> film}}
-{{/each}}
 
-<h2>Documentary</h2>
-{{#each films.documentary}}
-{{> film}}
-{{/each}}
+<main>
+    <h2>Fiction</h2>
+    {{#each films.fiction}}
+    {{> film}}
+    {{/each}}
+
+    <h2>Documentary</h2>
+    {{#each films.documentary}}
+    {{> film}}
+    {{/each}}
+</main>
+{{> footer}}
 {{/with}}
 {{/inline}}

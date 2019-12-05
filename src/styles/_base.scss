@@ -1,0 +1,14 @@
+@import "variables.scss";
+@import "mixins.scss";
+@import "reset.scss";
+
+:root {
+    font-family: $font;
+    font-size: 14px;
+  
+    @media (min-width: $tablet) {
+      font-size: 18px;
+    }
+  
+    scroll-behavior: smooth;
+}

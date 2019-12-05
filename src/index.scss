@@ -1,0 +1,8 @@
+@import "./styles/base";
+@import "./styles/mixins";
+@import "./components/header/header.scss";
+@import "./components/footer/footer.scss";
+
+main {
+    @include content-column;
+}

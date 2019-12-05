@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== "production") {
 const contentClient = contentful.createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    environment: process.env.CONTENTFUL_ENVIRONMENT
+    environment: "master"
 });
 
 const getFilms = async () => {

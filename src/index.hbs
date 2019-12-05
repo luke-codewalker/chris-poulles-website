@@ -1,0 +1,8 @@
+{{> baseLayout}}
+{{#*inline "content"}}
+{{#with htmlWebpackPlugin.options.data}}
+{{#each films.fiction}}
+{{title}} {{length}}
+{{/each}}
+{{/with}}
+{{/inline}}

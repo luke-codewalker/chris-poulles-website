@@ -3,12 +3,11 @@ name: CMS update
 on: repository_dispatch
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  deployment:
     steps:
-      - name: Log that we received a request
-        env:
-          ORIGINAL_PAYLOAD: ${{ toJson(github.event.client_payload.original_payload) }}
-        run: |
-          echo "Hello ${{ github.event.client_payload.name }}"
-          echo "$ORIGINAL_PAYLOAD"
+      - name: Run production deployment with new content
+        uses: ./.github/workflows/deploy
+  dev-deployment:
+    steps:
+      - name: Run stage deployment with new content
+        uses: ./.github/workflows/dev-deploy

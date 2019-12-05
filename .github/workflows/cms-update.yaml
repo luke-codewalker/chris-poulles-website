@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run production deployment with new content
-        uses: ./.github/workflows/deploy
+        uses: ./.github/workflows/deploy.yaml
   dev-deployment:
     runs-on: ubuntu-latest
     steps:
       - name: Run stage deployment with new content
-        uses: ./.github/workflows/dev-deploy
+        uses: ./.github/workflows/dev-deploy.yaml

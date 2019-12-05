@@ -7,24 +7,22 @@ const dataService = require("./data-service/dataService")
 module.exports = async () => {
     // load data and configure htmlWebpackPlugins for every page with it
     const films = await dataService.getFilms();
-    console.log(films);
-
 
     // compile a list with all partial directory so they can be referenced via name
-    const components = fs.readdirSync('./src/components').map(componentName => path.join(__dirname, 'src', 'components', componentName))
+    const components = fs.readdirSync(path.resolve(__dirname, 'src/components')).map(componentName => path.join(__dirname, 'src', 'components', componentName))
     const partialDirs = [path.join(__dirname, 'src', 'layouts'), ...components]
 
     // return the final assembled config object
     return {
         mode: "development",
-        entry: { index: ['./src/index.js', './src/index.scss'] },
+        entry: { index: [path.resolve(__dirname, 'src/index.js'), path.resolve(__dirname, 'src/index.scss')] },
         output: {
             filename: 'js/[name].js',
             path: path.resolve(__dirname, 'dist'),
         },
         plugins: [
             new HtmlWebpackPlugin({
-                template: 'src/index.hbs',
+                template: path.resolve(__dirname, 'src/index.hbs'),
                 filename: 'index.html',
                 title: 'Chris Poulles Website',
                 chunks: ['index'],

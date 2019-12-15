@@ -4,14 +4,14 @@
 {{#with htmlWebpackPlugin.options.data}}
 
 <main>
-    <h2>Fiction</h2>
+    {{> section-title title="fiction"}}
     {{#each films.fiction}}
-    {{> film}}
+    {{> teaser-tile film=this}}
     {{/each}}
 
-    <h2>Documentary</h2>
+    {{> section-title title="documentary"}}
     {{#each films.documentary}}
-    {{> film}}
+    {{> teaser-tile film=this}}
     {{/each}}
 </main>
 {{> footer}}

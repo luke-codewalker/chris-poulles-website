@@ -37,7 +37,8 @@ module.exports = async () => {
                 test: /\.hbs$/,
                 loader: "handlebars-loader",
                 query: {
-                    partialDirs
+                    partialDirs,
+                    helperDirs: [path.resolve(__dirname, 'src/helpers')]
                 }
             },
             {

@@ -23,6 +23,10 @@ $component: ".navbar";
       @media (min-width: $tablet) {
         letter-spacing: 0.33ch;
       }
+
+      &.current {
+        font-weight: bold;
+      }
     }
   }
 }

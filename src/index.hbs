@@ -5,15 +5,25 @@
 
 {{#with htmlWebpackPlugin.options.data}}
 <main>
-    {{> section-title title="fiction"}}
+    {{#> section title="showreel"}}
+    {{>showreel}}
+    {{/section}}
+
+    {{#> section title="fiction"}}
     {{#each films.fiction}}
     {{> teaser-tile film=this}}
     {{/each}}
+    {{/section}}
 
-    {{> section-title title="documentary"}}
+    {{#> section title="documentary"}}
     {{#each films.documentary}}
     {{> teaser-tile film=this}}
     {{/each}}
+    {{/section}}
+
+    {{#> section title="about"}}
+    {{>about}}
+    {{/section}}
 </main>
 {{> footer}}
 {{/with}}

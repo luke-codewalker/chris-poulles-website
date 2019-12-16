@@ -1,8 +1,9 @@
 {{> baseLayout}}
 {{#*inline "body"}}
 {{> header}}
-{{#with htmlWebpackPlugin.options.data}}
+{{> navbar}}
 
+{{#with htmlWebpackPlugin.options.data}}
 <main>
     {{> section-title title="fiction"}}
     {{#each films.fiction}}

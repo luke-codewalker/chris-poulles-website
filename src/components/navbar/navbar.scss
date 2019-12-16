@@ -1,12 +1,15 @@
 $component: ".navbar";
 
 #{$component} {
+  position: sticky;
+  top: 0;
+  background-color: white;
+
   &__list {
-    @include content-column;
-    padding: {
-      top: 2rem;
-      bottom: 2rem;
-    }
+    max-width: $tablet;
+    margin: 1rem auto;
+    padding: 1rem;
+
     list-style-type: none;
     display: flex;
     justify-content: space-between;

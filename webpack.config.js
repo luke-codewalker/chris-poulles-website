@@ -24,7 +24,7 @@ module.exports = async () => {
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, 'src/index.hbs'),
                 filename: 'index.html',
-                title: 'Chris Poulles Website',
+                title: 'Chris Poulles Cinematographer',
                 chunks: ['index'],
                 data: { films }
             }),

@@ -12,12 +12,14 @@
     {{#> section title="fiction"}}
     {{#each films.fiction}}
     {{> teaser-tile film=this}}
+    {{> film film=this}}
     {{/each}}
     {{/section}}
 
     {{#> section title="documentary"}}
     {{#each films.documentary}}
     {{> teaser-tile film=this}}
+    {{> film film=this}}
     {{/each}}
     {{/section}}
 

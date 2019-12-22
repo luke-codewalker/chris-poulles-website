@@ -1,2 +1,9 @@
-<h4>{{title}}</h4>
-<span>{{length}} minutes</span>
+{{#with film}}
+<div class="film" data-url="{{urlSlug}}">
+    <div class="film__content">
+        <button class="film__close">&times;</button>
+        <h4>{{title}}</h4>
+        <span>{{length}} minutes</span>
+    </div>
+</div>
+{{/with}}

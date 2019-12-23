@@ -1,24 +1,31 @@
-export default function highlightMenuEntry() {
-    const threshold = 0.66;
-    const navbarLinks = document.querySelectorAll(".navbar a");
-    const sections = document.querySelectorAll("[data-navbar-section]");
-    const intersectionObserver = new IntersectionObserver(entries => {
-        // if multiple e.g. on load, sort to get current (the one with highest intersection ratio)
-        if (entries.length > 1) {
-            entries = entries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        }
-        const node = entries[0];
+import BaseComponent from "../../utils/base-component";
 
-        // skip the section we are leaving
-        // if (node.intersectionRatio < threshold) return;
+export class NavbarComponent extends BaseComponent {
+    constructor(root) {
+        super(root);
+        this.observerOptions = {
+            threshold: 0.0,
+            rootMargin: "-50% 0px -50% 0px"
+        };
+        this.navbarLinks = [];
+        this.sections = [];
+    }
 
-        navbarLinks.forEach(navbarLink => {
-            if (navbarLink.href.split("#")[1] === node.target.id) {
+    updateCurrentSection(sections) {
+        const currentSection = sections.filter(s => s.isIntersecting)[0].target.id;
+        this.navbarLinks.forEach(navbarLink => {
+            if (navbarLink.href.split("#")[1] === currentSection) {
                 navbarLink.classList.add("current");
             } else {
                 navbarLink.classList.remove("current");
             }
         })
-    }, { threshold });
-    sections.forEach(node => intersectionObserver.observe(node))
+    }
+
+    init() {
+        this.navbarLinks = this.componentRoot.querySelectorAll("a");
+        this.sections = document.querySelectorAll("[data-navbar-section]");
+        const intersectionObserver = new IntersectionObserver(entries => this.updateCurrentSection(entries), this.observerOptions);
+        this.sections.forEach(node => intersectionObserver.observe(node))
+    }
 }

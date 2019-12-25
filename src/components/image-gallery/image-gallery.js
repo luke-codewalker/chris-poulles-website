@@ -46,7 +46,6 @@ export class ImageGallery extends BaseComponent {
         this.slider = this.componentRoot.querySelector(opts.selectors.slider);
         this.firstSlide = this.componentRoot.querySelector(opts.selectors.slide);
         this.sliderItemWidth = this.firstSlide.clientWidth;
-        console.log(this.componentRoot.clientWidth, this.sliderItemWidth);
                 
         const numberOfVisibleSlides = Math.round(this.componentRoot.clientWidth / this.sliderItemWidth);
         this.slidesCount = this.componentRoot.querySelectorAll(opts.selectors.slide).length;        

@@ -4,7 +4,9 @@ const mountAndInitComponent = (element, componentClass, initOptions = {}) => {
     return mountedComponent;
 }
 
-const selectRootElements = (selector, context = document) => context.querySelectorAll(selector);
+const selectRootElements = (selector, context = document) => {    
+    return context.querySelectorAll(selector);
+};
 
 export const setupComponents = (components) => {
     for (const component of components) {

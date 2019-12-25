@@ -48,7 +48,12 @@ module.exports = async () => {
                     'css-loader',
                     'sass-loader'
                 ]
-            }]
+            },
+            {
+                test: /\.(eot|ttf|woff2?)$/i,
+                use: 'file-loader'
+            }
+        ]
         },
         devServer: {
             contentBase: path.join(__dirname, 'dist'),

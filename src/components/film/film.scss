@@ -1,23 +1,32 @@
 $component: ".film";
 
 #{$component} {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+    padding: 0;
     background-color: rgba(0,0,0,0.5);
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    visibility: hidden;
+
+    @media (min-width: $tablet) {
+        padding: 20px;
+    }
+
+    @media (min-width: $desktop) {
+        padding: 40px;
+    }
     
     &.open {
-        display: flex;
+        visibility: visible;
     }
 
     &__content {
         background-color: white;
-        margin: 20px;
         padding: 20px;
     }
 

@@ -4,6 +4,9 @@
         <button class="film__close">&times;</button>
         <h4>{{title}}</h4>
         <span>{{length}} minutes</span>
+        {{#if imageGallery}}
+        {{> image-gallery images=imageGallery}}
+        {{/if}}
     </div>
 </div>
 {{/with}}

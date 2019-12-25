@@ -12,9 +12,11 @@ export class NavbarComponent extends BaseComponent {
     }
 
     updateCurrentSection(sections) {
-        const currentSection = sections.filter(s => s.isIntersecting)[0].target.id;
+        const newlyIntersectingSection = sections.filter(s => s.isIntersecting)[0];
+        if(!newlyIntersectingSection) return;
+        const currentSectionId = newlyIntersectingSection.target.id;
         this.navbarLinks.forEach(navbarLink => {
-            if (navbarLink.href.split("#")[1] === currentSection) {
+            if (navbarLink.href.split("#")[1] === currentSectionId) {
                 navbarLink.classList.add("current");
             } else {
                 navbarLink.classList.remove("current");

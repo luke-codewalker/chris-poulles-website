@@ -1,11 +1,13 @@
 @import "./styles/base";
 @import "./styles/mixins";
+@import "./styles/icofont.css";
 @import "./components/header/header.scss";
 @import "./components/footer/footer.scss";
 @import "./components/teaser-tile/teaser-tile.scss";
 @import "./components/navbar/navbar.scss";
 @import "./components/section/section.scss";
 @import "./components/film/film.scss";
+@import "./components//image-gallery/image-gallery.scss";
 
 h2 {
     @include content-column;

@@ -42,7 +42,7 @@ module.exports = async () => {
                 }
             },
             {
-                test: /\.scss$/,
+                test: /\.s?css$/,
                 use: [
                     process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
@@ -51,7 +51,11 @@ module.exports = async () => {
             },
             {
                 test: /\.(eot|ttf|woff2?)$/i,
-                use: 'file-loader'
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'css',
+                    name: '[name]_[hash:5].[ext]'
+                },
             }
         ]
         },

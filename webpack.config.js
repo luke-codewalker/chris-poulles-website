@@ -17,7 +17,7 @@ module.exports = async () => {
         mode: "development",
         entry: { index: [path.resolve(__dirname, 'src/index.js'), path.resolve(__dirname, 'src/index.scss')] },
         output: {
-            filename: 'js/[name].js',
+            filename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
         },
         plugins: [
@@ -29,7 +29,7 @@ module.exports = async () => {
                 data: { films }
             }),
             new MiniCssExtractPlugin({
-                filename: 'css/[name].css',
+                filename: '[name].css',
                 chunkFilename: '[id].css'
             })],
         module: {
@@ -44,7 +44,7 @@ module.exports = async () => {
             {
                 test: /\.s?css$/,
                 use: [
-                    process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    process.env.NODE_ENV === 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]
@@ -53,7 +53,6 @@ module.exports = async () => {
                 test: /\.(eot|ttf|woff2?)$/i,
                 loader: 'file-loader',
                 options: {
-                    outputPath: 'css',
                     name: '[name]_[hash:5].[ext]'
                 },
             }

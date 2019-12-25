@@ -22,9 +22,7 @@ export class ImageGallery extends BaseComponent {
             this.position -= 1;
         } else if (button === this.button.RIGHT && this.position < this.maxClicks) {
             this.position += 1;
-        }
-        console.log(button, this.position, this.maxClicks);
-        
+        }        
 
         this.updateSliderPosition();
         this.updateButtonVisibility();

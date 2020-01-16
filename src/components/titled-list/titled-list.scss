@@ -1,0 +1,15 @@
+$component: ".titled-list";
+
+#{$component} {
+    margin-top: 2rem;
+
+    h4 {
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 1em;
+        margin-top: 0.5em;
+    }
+}

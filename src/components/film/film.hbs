@@ -19,7 +19,15 @@
             {{> image-gallery images=imageGallery}}
             {{/if}}
         </main>
+        <footer class="film__footer">
+            {{#if contributors}}
+                {{> titled-list title="Contributors" list=contributors}}
+            {{/if}}
 
+            {{#if publicity}}
+                {{> titled-list title="Festival and Awards" list=publicity}}
+            {{/if}}
+        </footer>
     </div>
 </div>
 {{/with}}

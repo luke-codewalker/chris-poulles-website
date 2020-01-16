@@ -8,6 +8,7 @@
 @import "./components/section/section.scss";
 @import "./components/film/film.scss";
 @import "./components//image-gallery/image-gallery.scss";
+@import "./components/titled-list/titled-list.scss";
 
 h2 {
     @include content-column;

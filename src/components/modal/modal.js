@@ -1,5 +1,5 @@
 import BaseComponent from "../../utils/base-component";
-export default class Film extends BaseComponent {    
+export default class Modal extends BaseComponent {    
     constructor(selector) {
         super(selector);
         this.history = {};
@@ -21,7 +21,7 @@ export default class Film extends BaseComponent {
         this.history = options.historyManager;
         this.history.subscribe((e) => this.onNavigationEvent(e));
         this.addEventListeners({
-            ".film__close": {
+            ".modal__close": {
                 "click": (e) => this.onCloseButtonClicked(e)
             }
         })

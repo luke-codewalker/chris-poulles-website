@@ -7,6 +7,9 @@ const dataService = require("./data-service/dataService")
 module.exports = async () => {
     // load data and configure htmlWebpackPlugins for every page with it
     const films = await dataService.getFilms();
+    if (process.env.NODE_ENV !== "production") {
+        fs.writeFileSync(path.resolve(__dirname, "data-service", "films.dump.json"), JSON.stringify(films))
+    }
 
     // compile a list with all partial directory so they can be referenced via name
     const components = fs.readdirSync(path.resolve(__dirname, 'src/components')).map(componentName => path.join(__dirname, 'src', 'components', componentName))
@@ -14,7 +17,7 @@ module.exports = async () => {
 
     // return the final assembled config object
     return {
-        mode: "development",
+        mode: process.env.NODE_ENV === "production" ? "production" : "development",
         entry: { index: [path.resolve(__dirname, 'src/index.js'), path.resolve(__dirname, 'src/index.scss')] },
         output: {
             filename: '[name].js',

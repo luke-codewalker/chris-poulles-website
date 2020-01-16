@@ -2,7 +2,7 @@ import { NavbarComponent } from "./components/navbar/navbar";
 import TeaserTile from "./components/teaser-tile/teaser-tile";
 import { setupComponents } from "./utils/component-manager";
 import { HistoryManager } from "./utils/history-manager";
-import Film from "./components/film/film";
+import Modal from "./components/modal/modal";
 import { ImageGallery } from "./components/image-gallery/image-gallery";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -16,8 +16,8 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     },
     {
-        selector: ".film",
-        componentClass: Film,
+        selector: ".modal",
+        componentClass: Modal,
         initOptions: {
             historyManager
         }

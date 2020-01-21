@@ -25,6 +25,12 @@ module.exports = function (plop) {
                 type: 'add',
                 path: 'src/components/{{dashCase name}}/{{dashCase name}}.scss',
                 templateFile: 'plop-templates/component.scss.hbs'
+            },
+            {
+                type: 'modify',
+                path: 'src/index.scss',
+                pattern: /(@import .*\.scss";)/s,
+                template: '$1\r\n@import "./components/{{dashCase name}}/{{dashCase name}}.scss";'
             }];
 
             if(data.addJS) {

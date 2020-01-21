@@ -1,9 +1,7 @@
 const path = require('path');
 const fs = require('fs');
-const glob = require("glob");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 module.exports = (content) => {
     // compile a list with all partial directory so they can be referenced via name
@@ -54,9 +52,6 @@ module.exports = (content) => {
             new MiniCssExtractPlugin({
                 filename: '[name].css',
                 chunkFilename: '[id].css'
-            }),
-            new PurgecssPlugin({
-                paths: glob.sync(`${__dirname}/src/**/*.{hbs,js}` , { nodir: true })
             })
         ]
     };

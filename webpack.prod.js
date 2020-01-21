@@ -1,7 +1,11 @@
 const merge = require('webpack-merge');
 const DataService = require('./data-service/dataService');
+const glob = require("glob");
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 module.exports = async () => {
+    // TODO: remove before merge, only for local debugging
+    require("dotenv").config();
     const dataService = new DataService({
         space: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -13,6 +17,11 @@ module.exports = async () => {
     const common = require('./webpack.common')({ films });
 
     return merge(common, {
-        mode: 'development'
+        mode: 'development',
+        plugins: [
+            new PurgecssPlugin({
+                paths: glob.sync(`${__dirname}/src/**/*.{hbs,js}` , { nodir: true })
+            })
+        ]
     })
 }

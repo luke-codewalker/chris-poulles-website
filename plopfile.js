@@ -38,7 +38,19 @@ module.exports = function (plop) {
                     type: 'add',
                     path: 'src/components/{{dashCase name}}/{{dashCase name}}.js',
                     templateFile: 'plop-templates/component.js.hbs'
-                })
+                },
+                {
+                    type: 'modify',
+                    path: 'src/index.js',
+                    pattern: /(import .*";)/s,
+                    template: '$1\r\nimport { {{camelCase name}} } from "./components/{{dashCase name}}/{{dashCase name}}.js";'
+                },
+                {
+                    type: 'modify',
+                    path: 'src/index.js',
+                    pattern: /(setupComponents\(\[(\{.*\})*)\]/s,
+                    templateFile: 'plop-templates/js.snippet.hbs'
+                });
             }
 
             return actions;

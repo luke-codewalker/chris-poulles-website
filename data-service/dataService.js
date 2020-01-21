@@ -2,6 +2,10 @@ const contentful = require("contentful");
 const fs = require("fs");
 const path = require("path");
 
+const METHOD_OPTIONS_DEFAULTS = {
+    shouldDumpData: false
+}
+
 module.exports = class DataService {
     constructor(config) {
         if (this.constructor.instance) return this.constructor.instance;
@@ -11,7 +15,8 @@ module.exports = class DataService {
         this.constructor.instance = this;
     }
 
-    async getFilms(options) {
+    async getFilms(opts) {
+        const options = {...METHOD_OPTIONS_DEFAULTS, ...opts}
         const data = await this.contentClient.getEntries({
             content_type: "film"
         });
@@ -31,7 +36,8 @@ module.exports = class DataService {
         return films;
     };
 
-    async getAbout(options) {
+    async getAbout(opts) {
+        const options = {...METHOD_OPTIONS_DEFAULTS, ...opts}
         const data = await this.contentClient.getEntries({
             content_type: "about"
         });
@@ -41,7 +47,8 @@ module.exports = class DataService {
         return data.items[0].fields;
     };
 
-    async getMetaInfo(options) {
+    async getMetaInfo(opts) {
+        const options = {...METHOD_OPTIONS_DEFAULTS, ...opts}
         const data = await this.contentClient.getEntries({
             content_type: "metaInfo"
         });

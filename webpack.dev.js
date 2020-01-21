@@ -16,8 +16,17 @@ module.exports = async () => {
     const films = await dataService.getFilms({ shouldDumpData: true });
     const common = require('./webpack.common')({ films });
 
-    return merge(common, {
+    return merge.smartStrategy({ 'module.rules.use': 'prepend' })(common, {
         mode: 'development',
+        module: {
+            rules: [
+                {
+                    test: /\.s?css$/,
+                    use: [
+                        'style-loader'
+                    ]
+                }]
+        },
         devServer: {
             contentBase: path.join(__dirname, 'dist'),
             compress: true,

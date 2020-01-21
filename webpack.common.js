@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (content) => {
     // compile a list with all partial directory so they can be referenced via name
@@ -27,7 +26,6 @@ module.exports = (content) => {
             {
                 test: /\.s?css$/,
                 use: [
-                    process.env.NODE_ENV === 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]
@@ -48,10 +46,6 @@ module.exports = (content) => {
                 title: 'Chris Poulles Cinematographer',
                 chunks: ['index'],
                 data: content
-            }),
-            new MiniCssExtractPlugin({
-                filename: '[name].css',
-                chunkFilename: '[id].css'
             })
         ]
     };

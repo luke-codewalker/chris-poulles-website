@@ -30,7 +30,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: NODE_ENV=production CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} npm run build
+        run: CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} npm run build
 
       - name: Deploy to now
         run: now dist --token ${{ secrets.NOW_TOKEN }} --local-config ../now.json

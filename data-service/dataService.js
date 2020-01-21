@@ -1,51 +1,57 @@
 const contentful = require("contentful");
-// load .env variables locally
-if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config();
+const fs = require("fs");
+const path = require("path");
+
+module.exports = class DataService {
+    constructor(config) {
+        if (this.constructor.instance) return this.constructor.instance;
+
+        this.contentClient = contentful.createClient(config);
+
+        this.constructor.instance = this;
+    }
+
+    async getFilms(options) {
+        const data = await this.contentClient.getEntries({
+            content_type: "film"
+        });
+
+        const films = {};
+
+        data.items.forEach(item => {
+            if (films[item.fields.category]) {
+                films[item.fields.category].push(item.fields);
+            } else {
+                films[item.fields.category] = [item.fields];
+            }
+        });
+
+        if(options.shouldDumpData) this.dumpData("films", films)
+
+        return films;
+    };
+
+    async getAbout(options) {
+        const data = await this.contentClient.getEntries({
+            content_type: "about"
+        });
+
+        if(options.shouldDumpData) this.dumpData("about", data.items[0].fields)
+
+        return data.items[0].fields;
+    };
+
+    async getMetaInfo(options) {
+        const data = await this.contentClient.getEntries({
+            content_type: "metaInfo"
+        });
+
+        if(options.shouldDumpData) this.dumpData("meta", data.items[0].fields)
+
+        return data.items[0].fields;
+    };
+
+    dumpData(name, data, basePath = __dirname) {
+        fs.writeFileSync(path.join(basePath, `${name}.dump.json`), JSON.stringify(data))
+    }
 }
-
-const contentClient = contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    environment: "master"
-});
-
-const getFilms = async () => {
-    const data = await contentClient.getEntries({
-        content_type: "film"
-    });
-
-    const films = {};
-
-    data.items.forEach(item => {
-        if (films[item.fields.category]) {
-            films[item.fields.category].push(item.fields);
-        } else {
-            films[item.fields.category] = [item.fields];
-        }
-    });
-
-    return films;
-};
-
-const getAbout = async () => {
-    const data = await contentClient.getEntries({
-        content_type: "about"
-    });
-
-    return data.items[0].fields;
-};
-
-const getMetaInfo = async () => {
-    const data = await contentClient.getEntries({
-        content_type: "metaInfo"
-    });
-
-    return data.items[0].fields;
-};
-
-module.exports = {
-    getFilms,
-    getAbout,
-    getMetaInfo
-};

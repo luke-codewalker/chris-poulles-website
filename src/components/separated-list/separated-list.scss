@@ -1,0 +1,15 @@
+
+@import "../../styles/variables";
+$component: ".separated-list";
+
+#{$component} {
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+
+    &__spacer {
+        margin: 0 8px;
+    }
+}

@@ -10,6 +10,8 @@
 @import "./components/modal/modal.scss";
 @import "./components//image-gallery/image-gallery.scss";
 @import "./components/titled-list/titled-list.scss";
+@import "./components/showreel/showreel.scss";
+@import "./components/separated-list/separated-list.scss";
 
 h2 {
     @include content-column;

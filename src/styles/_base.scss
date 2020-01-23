@@ -4,21 +4,11 @@
 
 :root {
     font-family: $font;
-    font-size: 14px;
+    font-size: 16px;
   
     @media (min-width: $tablet) {
       font-size: 18px;
     }
   
     scroll-behavior: smooth;
-}
-
-/*base link style*/
-a.link {
-  color: $text-color;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }

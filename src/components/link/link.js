@@ -1,5 +1,6 @@
 import BaseComponent from "../../utils/base-component";
-export default class TeaserTile extends BaseComponent {
+
+export class Link extends BaseComponent {
     constructor(selector) {
         super(selector);
         this.history = {};

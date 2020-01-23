@@ -5,7 +5,7 @@
     <div class="showreel__info">
         <p>Based in</p>
         {{> separated-list list=about.locations}}
-        {{#>link href="mailto:{{about.eMail}}?subject=Inquiry%20over%20your%20website"}}
+        {{#>link href=(concat "mailto:" about.eMail "?subject=Inquiry%20over%20your%20website")}}
             {{about.eMail}}
         {{/link}}
     </div>

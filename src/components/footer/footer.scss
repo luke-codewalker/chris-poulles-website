@@ -12,4 +12,9 @@ $component: ".footer";
         flex-direction: row;
         justify-content: flex-end;
     }
+
+    &__copy,
+    &__imprint {
+        margin: 0 0.5rem;
+    }
 }

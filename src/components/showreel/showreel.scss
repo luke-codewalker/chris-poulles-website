@@ -11,11 +11,11 @@ $component: '.showreel';
         margin: 0 auto 40px auto;
         
         @media (min-width: $tablet) {
-            @include video-size(480px);
+            @include video-size(540px);
         }
 
         @media (min-width: $desktop) {
-            @include video-size(720px);
+            @include video-size(800px);
         }
     }
     &__info {

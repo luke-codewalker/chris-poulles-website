@@ -12,6 +12,8 @@
 @import "./components/titled-list/titled-list.scss";
 @import "./components/showreel/showreel.scss";
 @import "./components/separated-list/separated-list.scss";
+@import "./components/imprint/imprint.scss";
+@import "./components/link/link.scss";
 
 h2 {
     @include content-column;

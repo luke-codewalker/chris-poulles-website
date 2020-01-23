@@ -1,20 +1,14 @@
 import { NavbarComponent } from "./components/navbar/navbar";
-import TeaserTile from "./components/teaser-tile/teaser-tile";
 import { setupComponents } from "./utils/component-manager";
 import { HistoryManager } from "./utils/history-manager";
 import Modal from "./components/modal/modal";
 import { ImageGallery } from "./components/image-gallery/image-gallery";
+import { Link } from "./components/link/link.js";
 
 window.addEventListener("DOMContentLoaded", () => {
     const historyManager = new HistoryManager();
 
-    setupComponents([{
-        selector: "a.teaser-tile",
-        componentClass: TeaserTile,
-        initOptions: {
-            historyManager
-        }
-    },
+    setupComponents([
     {
         selector: ".modal",
         componentClass: Modal,
@@ -36,6 +30,13 @@ window.addEventListener("DOMContentLoaded", () => {
                 leftButton: ".image-gallery__button--left",
                 rightButton: ".image-gallery__button--right"
             }
+        }
+    },
+    {
+        selector: "a.link[data-internal-link]",
+        componentClass: Link,
+        initOptions: {
+            historyManager
         }
     }])
 

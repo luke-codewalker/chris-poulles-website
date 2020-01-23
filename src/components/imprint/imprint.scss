@@ -1,0 +1,15 @@
+@import "../../styles/mixins";
+$component: ".imprint";
+
+#{$component} {
+
+    .rich-text {
+        @include content-column;
+        white-space: pre-line;
+
+        em {
+            font-weight: bold;
+            font-style: normal;
+        }
+    }
+}

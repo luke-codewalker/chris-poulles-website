@@ -1,6 +1,6 @@
 import { NavbarComponent } from "./components/navbar/navbar";
-import { setupComponents } from "./utils/component-manager";
-import { HistoryManager } from "./utils/history-manager";
+import { setupComponents } from "./lib/component-manager";
+import { HistoryManager } from "./lib/history-manager";
 import Modal from "./components/modal/modal";
 import { ImageGallery } from "./components/image-gallery/image-gallery";
 import { Link } from "./components/link/link.js";

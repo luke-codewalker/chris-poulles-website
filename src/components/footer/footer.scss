@@ -10,11 +10,20 @@ $component: ".footer";
 
     @media (min-width: $tablet) {
         flex-direction: row;
-        justify-content: flex-end;
     }
 
-    &__copy,
-    &__imprint {
+    &__link {
         margin: 0 0.5rem;
+
+        &--mail,
+        &--instagram,
+        &--copy,
+        &--imprint {
+            @extend .footer__link;
+        }
+
+        &--copy {
+            margin-left: auto;
+        }
     }
 }

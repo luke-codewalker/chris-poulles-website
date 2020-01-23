@@ -1,4 +1,4 @@
-import BaseComponent from "../../utils/base-component";
+import BaseComponent from "../../lib/base-component";
 export default class Modal extends BaseComponent {    
     constructor(selector) {
         super(selector);

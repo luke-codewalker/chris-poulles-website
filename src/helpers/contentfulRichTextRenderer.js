@@ -2,7 +2,7 @@ import Handlebars from "handlebars";
 
 const nodeMap = {
     "document": {
-        openingTag: () => '<div>',
+        openingTag: () => '<div class="rich-text">',
         closingTag: () => '</div>',
     },
     "paragraph": {

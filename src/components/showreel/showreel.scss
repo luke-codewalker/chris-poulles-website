@@ -1,18 +1,21 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
+
 $component: '.showreel';
 
 #{$component} {
     &__video {
-        width: 100%;
-        min-height: 210px;
-        margin-bottom: 20px;
+        display: block;
+        @include video-size(320px);
+        background-color: $text-color;
+        margin: 0 auto 40px auto;
         
         @media (min-width: $tablet) {
-            min-height: 360px;
+            @include video-size(480px);
         }
 
         @media (min-width: $desktop) {
-            min-height: 490px;
+            @include video-size(720px);
         }
     }
     &__info {

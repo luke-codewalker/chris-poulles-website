@@ -48,6 +48,16 @@ url("./fonts/icofont.woff") format("woff");
   content: "\eaca";
 }
 
+.icofont-instagram:before
+{
+  content: "\ed46";
+}
+
+.icofont-mail:before
+{
+  content: "\ef88";
+}
+
 .icofont-xs
 {
   font-size: .5em;

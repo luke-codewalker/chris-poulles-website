@@ -1,6 +1,14 @@
 <footer class="footer">
-    <span class="footer__copy">&copy; 2019 Chris Poulles</span>
-    <span class="footer__imprint">
+    {{#>link class="footer__link--instagram" href=(concat "https://www.instagram.com/" about.instagramProfile) external=true}}
+        <i class="icofont-instagram"></i>
+        Instagram
+    {{/link}}
+    {{#>link class="footer__link--mail" href=(concat "mailto:" about.eMail "?subject=Inquiry%20over%20your%20website") external=true}}
+        <i class="icofont-mail"></i>
+        E-Mail
+    {{/link}}
+    <span class="footer__link--copy">&copy; 2019 Chris Poulles</span>
+    <span class="footer__link--imprint">
     {{> imprint}}
     </span>
 </footer>

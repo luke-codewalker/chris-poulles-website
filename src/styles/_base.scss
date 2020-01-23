@@ -12,3 +12,13 @@
   
     scroll-behavior: smooth;
 }
+
+/*base link style*/
+a.link {
+  color: $text-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

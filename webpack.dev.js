@@ -14,7 +14,8 @@ module.exports = async () => {
 
     // load data and configure webpack with it
     const films = await dataService.getFilms({ shouldDumpData: true });
-    const common = require('./webpack.common')({ films });
+    const about = await dataService.getAbout({ shouldDumpData: true });
+    const common = require('./webpack.common')({ films, about });
 
     return merge.smartStrategy({ 'module.rules.use': 'prepend' })(common, {
         mode: 'development',

@@ -1,0 +1,5 @@
+<ul class="separated-list">
+    {{#each list}}
+    <li>{{this}}{{#unless @last}}<span class="separated-list__spacer">|</span>{{/unless}}</li>
+    {{/each}}
+</ul>

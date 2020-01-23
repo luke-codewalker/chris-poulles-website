@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+$component: '.showreel';
+
+#{$component} {
+    &__video {
+        width: 100%;
+        min-height: 210px;
+        margin-bottom: 20px;
+        
+        @media (min-width: $tablet) {
+            min-height: 360px;
+        }
+
+        @media (min-width: $desktop) {
+            min-height: 490px;
+        }
+    }
+    &__info {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}

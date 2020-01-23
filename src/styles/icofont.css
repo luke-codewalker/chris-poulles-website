@@ -53,9 +53,14 @@ url("./fonts/icofont.woff") format("woff");
   content: "\ed46";
 }
 
-.icofont-mail:before
+.icofont-ui-email:before
 {
-  content: "\ef88";
+  content: "\ec56";
+}
+
+.icofont-copyright:before
+{
+  content: "\eef3";
 }
 
 .icofont-xs

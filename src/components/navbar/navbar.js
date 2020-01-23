@@ -1,4 +1,4 @@
-import BaseComponent from "../../utils/base-component";
+import BaseComponent from "../../lib/base-component";
 
 export class NavbarComponent extends BaseComponent {
     constructor(root) {

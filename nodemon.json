@@ -1,0 +1,6 @@
+{
+    "watch": [
+        "webpack.common.js",
+        "webpack.dev.js"
+    ]
+}

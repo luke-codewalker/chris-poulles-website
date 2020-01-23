@@ -3,3 +3,8 @@
     margin: 0 auto;
     padding: 0 1rem;
   }
+
+@mixin video-size($width) {
+  width: $width;
+  height: 0.56 * $width
+}

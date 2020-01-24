@@ -6,7 +6,7 @@
     {{#each images}}
     {{#with this.fields}}
         <div class="image-gallery__image">
-            <img src="{{file.url}}" alt="{{title}}" />
+            <img src="{{file.url}}" alt="{{title}}" itemprop="image" />
         </div>
     {{/with}}
     {{/each}}

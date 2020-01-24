@@ -2,7 +2,7 @@
     <h4>{{title}}</h4>
     <ul>
     {{#each list}}
-        <li>{{this}}</li>
+        <li {{#if ../itemprop}}itemprop="{{../itemprop}}"{{/if}}>{{this}}</li>
     {{/each}}
     </ul>
 </div>

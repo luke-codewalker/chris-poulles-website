@@ -13,8 +13,8 @@
     scroll-behavior: smooth;
 }
 
-h2 {
-  @include content-column;
+h1, h2, h3, h4, h5, h6, .heading {
+  font-family: $heading-font;
 }
 
 .rich-text {

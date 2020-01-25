@@ -12,3 +12,16 @@
   
     scroll-behavior: smooth;
 }
+
+h2 {
+  @include content-column;
+}
+
+.rich-text {
+  white-space: pre-line;
+
+  em {
+      font-weight: bold;
+      font-style: normal;
+  }
+}

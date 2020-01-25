@@ -5,7 +5,7 @@ $component: ".film";
 
 #{$component} {
     @include content-column;
-    padding: 40px 20px;
+    @include padding;
 
     &__header {
         &__title {

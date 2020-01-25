@@ -5,7 +5,11 @@
     margin: 0 auto;
 }
 
+@mixin padding {
+    padding: 40px 20px;
+}
+
 @mixin video-size($width) {
-  width: $width;
-  height: 0.56 * $width
+    width: $width;
+    height: 0.56 * $width;
 }

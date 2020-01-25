@@ -1,11 +1,13 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 $component: ".film";
 
 #{$component} {
-    &__header {
-        margin-top: 1rem;
+    @include content-column;
+    padding: 40px 20px;
 
+    &__header {
         &__title {
             font-size: 2rem;
             margin: 0;

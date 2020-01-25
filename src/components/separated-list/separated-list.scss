@@ -9,7 +9,8 @@ $component: ".separated-list";
     display: flex;
     justify-content: center;
 
-    &__spacer {
+    &__item:not(:last-of-type)::after {
+        content: "|";
         margin: 0 8px;
     }
 }

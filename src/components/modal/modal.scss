@@ -19,12 +19,7 @@ $component: ".modal";
 
     &__content {
         background-color: white;
-        padding: 20px 40px;
         overflow-y: auto;
-
-        @media (min-width: $tablet) {
-            padding: 40px 60px;
-        }
     }
 
     &__close {

@@ -1,8 +1,9 @@
+@import "../styles/variables";
+
 @mixin content-column {
-    max-width: $tablet;
+    max-width: $desktop;
     margin: 0 auto;
-    padding: 0 1rem;
-  }
+}
 
 @mixin video-size($width) {
   width: $width;

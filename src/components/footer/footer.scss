@@ -13,7 +13,7 @@ $component: ".footer";
     }
 
     &__link {
-        margin: 0 0.5rem;
+        margin: 0.125rem 0.5rem;
 
         &--mail,
         &--instagram,
@@ -21,9 +21,10 @@ $component: ".footer";
         &--imprint {
             @extend .footer__link;
         }
-
-        &--copy {
-            margin-left: auto;
+        @media (min-width: $tablet) {
+            &--copy {
+                margin-left: auto;
+            }
         }
     }
 }

@@ -21,6 +21,10 @@ module.exports = class DataService {
             content_type: "film"
         });
 
+        // sort all films by order or publish date
+        data.items.sort((a,b) => a.fields.order && b.fields.order ? a.fields.order - b.fields.order : a.sys.createdAt - b.sys.createdAt);
+
+        // split films into categories
         const films = {};
 
         data.items.forEach(item => {

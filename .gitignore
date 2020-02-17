@@ -1,3 +1,8 @@
 node_modules
 .env
+
+# ignore build output
 dist/
+
+# ignore dev data dumps of CMS content
+*.dump.json

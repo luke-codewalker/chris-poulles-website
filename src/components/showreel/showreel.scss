@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+$component: '.showreel';
+
+#{$component} {
+    &__video {
+        display: block;
+        @include video-size(320px);
+        background-color: $text-color;
+        margin: 0 auto 40px auto;
+        
+        @media (min-width: $tablet) {
+            @include video-size(540px);
+        }
+
+        @media (min-width: $desktop) {
+            @include video-size(800px);
+        }
+    }
+    &__info {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}

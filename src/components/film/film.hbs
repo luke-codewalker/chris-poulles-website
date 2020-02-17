@@ -1,2 +1,36 @@
-<h4>{{title}}</h4>
-<span>{{length}} minutes</span>
+{{#> modal}}
+{{#with film}}
+<div class="film" itemscope itemtype="http://schema.org/Movie">
+    <header class="film__header">
+        <div>
+            <h3 class="film__header__title" itemprop="name">{{title}}</h3>
+            <span class="film__header__subtitle heading">{{subtitle}}</span>
+        </div>
+
+        <span class="film__header__details">
+            {{#if year}}<time itemprop="datePublished" datetime="{{year}}">{{year}}</time> | {{/if}}
+            {{#if countries}}<span itemprop="locationCreated">{{countries}}</span> | {{/if}}
+            {{#if genre}}<span itemprop="genre">{{genre}}</span> |{{/if}}
+            <time itemprop="duration" datetime="{{length}}M">{{length}}'</time>
+        </span>
+    </header>
+    <main class="film__main">
+        {{#if description}}
+        <p class="film__main__description" itemprop="abstract">{{{description}}}</p>
+        {{/if}}
+        {{#if imageGallery}}
+        {{> image-gallery images=imageGallery}}
+        {{/if}}
+    </main>
+    <footer class="film__footer">
+        {{#if credits}}
+        {{> titled-list title="Credits" list=credits itemprop="contributor"}}
+        {{/if}}
+
+        {{#if publicity}}
+        {{> titled-list title="Festival and Awards" list=publicity itemprop="award"}}
+        {{/if}}
+    </footer>
+</div>
+{{/with}}
+{{/modal}}

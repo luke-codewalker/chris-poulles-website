@@ -1,0 +1,32 @@
+$component: ".navbar";
+
+#{$component} {
+  position: sticky;
+  top: 0;
+  background-color: white;
+
+  &__list {
+    max-width: $tablet;
+    margin: 0 auto;
+    padding: 1rem;
+
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+
+    &__link {
+      color: $text-color;
+      text-decoration: none;
+
+      @media (min-width: $tablet) {
+        letter-spacing: 0.33ch;
+      }
+
+      &.current {
+        font-weight: bold;
+      }
+    }
+  }
+}

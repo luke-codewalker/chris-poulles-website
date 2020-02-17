@@ -1,0 +1,4 @@
+<a class="{{concat "link " class}}" href="{{href}}" {{#if internal}}data-internal-link{{/if}}
+    {{#if external}}{{#unless internal}}target="_blank" rel="noopener noreferrer" {{/unless}}{{/if}}>
+    {{> @partial-block}}
+</a>

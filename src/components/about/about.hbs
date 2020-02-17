@@ -1,0 +1,8 @@
+<div class="about">
+    <p class="about__statement">
+        "{{about.statement}}"
+    </p>
+    {{#if about.curriculumVitae.fields.file.url}}
+    {{#>link external="true" href=about.curriculumVitae.fields.file.url}}Download {{about.curriculumVitae.fields.description}} here.{{/link}}
+    {{/if}}
+</div>

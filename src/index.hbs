@@ -1,14 +1,31 @@
-{{> baseLayout}}
-{{#*inline "content"}}
 {{#with htmlWebpackPlugin.options.data}}
-<h2>Fiction</h2>
-{{#each films.fiction}}
-{{> film}}
-{{/each}}
+{{#> baseLayout}}
+<noscript>To view this page properly Javascript needs to be enabled!</noscript>
+{{> header}}
+{{> navbar}}
+<main>
+    {{#> section title="showreel"}}
+    {{>showreel}}
+    {{/section}}
 
-<h2>Documentary</h2>
-{{#each films.documentary}}
-{{> film}}
-{{/each}}
+    {{#> section title="fiction"}}
+    {{#each films.fiction}}
+    {{> teaser-tile film=this}}
+    {{> film film=this}}
+    {{/each}}
+    {{/section}}
+
+    {{#> section title="documentary"}}
+    {{#each films.documentary}}
+    {{> teaser-tile film=this}}
+    {{> film film=this}}
+    {{/each}}
+    {{/section}}
+
+    {{#> section title="about"}}
+    {{>about}}
+    {{/section}}
+</main>
+{{> footer}}
+{{/baseLayout}}
 {{/with}}
-{{/inline}}

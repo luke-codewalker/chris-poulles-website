@@ -1,51 +1,68 @@
 const contentful = require("contentful");
-// load .env variables locally
-if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config();
+const fs = require("fs");
+const path = require("path");
+
+const METHOD_OPTIONS_DEFAULTS = {
+    shouldDumpData: false
 }
 
-const contentClient = contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    environment: "master"
-});
+module.exports = class DataService {
+    constructor(config) {
+        if (this.constructor.instance) return this.constructor.instance;
 
-const getFilms = async () => {
-    const data = await contentClient.getEntries({
-        content_type: "film"
-    });
+        this.contentClient = contentful.createClient(config);
 
-    const films = {};
+        this.constructor.instance = this;
+    }
 
-    data.items.forEach(item => {
-        if (films[item.fields.category]) {
-            films[item.fields.category].push(item.fields);
-        } else {
-            films[item.fields.category] = [item.fields];
-        }
-    });
+    async getFilms(opts) {
+        const options = {...METHOD_OPTIONS_DEFAULTS, ...opts}
+        const data = await this.contentClient.getEntries({
+            content_type: "film"
+        });
 
-    return films;
-};
+        // sort all films by order or publish date
+        data.items.sort((a,b) => a.fields.order && b.fields.order ? a.fields.order - b.fields.order : a.sys.createdAt - b.sys.createdAt);
 
-const getAbout = async () => {
-    const data = await contentClient.getEntries({
-        content_type: "about"
-    });
+        // split films into categories
+        const films = {};
 
-    return data.items[0].fields;
-};
+        data.items.forEach(item => {
+            if (films[item.fields.category]) {
+                films[item.fields.category].push(item.fields);
+            } else {
+                films[item.fields.category] = [item.fields];
+            }
+        });
 
-const getMetaInfo = async () => {
-    const data = await contentClient.getEntries({
-        content_type: "metaInfo"
-    });
+        if(options.shouldDumpData) this.dumpData("films", films)
 
-    return data.items[0].fields;
-};
+        return films;
+    };
 
-module.exports = {
-    getFilms,
-    getAbout,
-    getMetaInfo
-};
+    async getAbout(opts) {
+        const options = {...METHOD_OPTIONS_DEFAULTS, ...opts}
+        const data = await this.contentClient.getEntries({
+            content_type: "about"
+        });
+
+        if(options.shouldDumpData) this.dumpData("about", data.items[0].fields)
+
+        return data.items[0].fields;
+    };
+
+    async getMetaInfo(opts) {
+        const options = {...METHOD_OPTIONS_DEFAULTS, ...opts}
+        const data = await this.contentClient.getEntries({
+            content_type: "metaInfo"
+        });
+
+        if(options.shouldDumpData) this.dumpData("meta", data.items[0].fields)
+
+        return data.items[0].fields;
+    };
+
+    dumpData(name, data, basePath = __dirname) {
+        fs.writeFileSync(path.join(basePath, `${name}.dump.json`), JSON.stringify(data))
+    }
+}

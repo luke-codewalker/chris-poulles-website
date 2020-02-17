@@ -1,0 +1,44 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+$component: ".film";
+
+#{$component} {
+    @include content-column;
+    @include padding;
+
+    &__header {
+        &__title {
+            font-size: 2rem;
+            margin: 0;
+        }
+        
+        &__subtitle {
+            font-weight: bold;
+        }
+
+        &__details {
+            color: $text-color-light;
+
+            @media (min-width: $tablet) {
+                margin: 0.5em 0 0 0;
+            }
+        }
+
+        @media (min-width: $tablet) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    
+    &__main {
+        &__description{
+            white-space: pre-line;
+        }
+
+        .image-gallery {
+            margin-top: 2rem;
+        }
+    }
+}

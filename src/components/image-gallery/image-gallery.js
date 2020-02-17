@@ -13,6 +13,7 @@ export class ImageGallery extends BaseComponent {
         this.firstSlide = null;
         this.sliderItemWidth = 0;
         this.slidesCount = 0;
+        this.numberOfVisibleSlides = 0;
         this.leftButton = null;
         this.rightButton = null;
     }
@@ -33,13 +34,17 @@ export class ImageGallery extends BaseComponent {
     }
 
     updateButtonVisibility() {
-        this.leftButton.style.display = "block";
-        this.rightButton.style.display = "block";
-        if(this.position === 0) {
+        if(this.position > 0) {
+            this.leftButton.style.display = "block";
+        } else {
             this.leftButton.style.display = "none";
-        } else if (this.position === this.maxClicks) {
+        }
+        
+        if (this.position < this.maxClicks && this.slidesCount > this.numberOfVisibleSlides) {
+            this.rightButton.style.display = "block";
+        } else {
             this.rightButton.style.display = "none";
-        } 
+        }
     }
 
     init(opts) {
@@ -47,11 +52,13 @@ export class ImageGallery extends BaseComponent {
         this.firstSlide = this.componentRoot.querySelector(opts.selectors.slide);
         this.sliderItemWidth = this.firstSlide.clientWidth;
                 
-        const numberOfVisibleSlides = Math.round(this.componentRoot.clientWidth / this.sliderItemWidth);
+        this.numberOfVisibleSlides = Math.round(this.componentRoot.clientWidth / this.sliderItemWidth);
         this.slidesCount = this.componentRoot.querySelectorAll(opts.selectors.slide).length;        
-        this.maxClicks = this.slidesCount - numberOfVisibleSlides;
+        this.maxClicks = this.slidesCount - this.numberOfVisibleSlides;
         this.leftButton = this.componentRoot.querySelector(opts.selectors.leftButton);
         this.rightButton = this.componentRoot.querySelector(opts.selectors.rightButton);
+        
+        this.updateButtonVisibility();
 
         this.addEventListeners({
             [opts.selectors.leftButton]: {
@@ -63,9 +70,10 @@ export class ImageGallery extends BaseComponent {
             "window": {
                 "resize": () => {
                     this.sliderItemWidth = this.firstSlide.clientWidth;        
-                    const numberOfVisibleSlides = Math.round(this.componentRoot.clientWidth / this.sliderItemWidth);
-                    this.maxClicks = this.slidesCount - numberOfVisibleSlides;
+                    this.numberOfVisibleSlides = Math.round(this.componentRoot.clientWidth / this.sliderItemWidth);
+                    this.maxClicks = this.slidesCount - this.numberOfVisibleSlides;
                     this.updateSliderPosition();
+                    this.updateButtonVisibility();
                 }
             }
         })

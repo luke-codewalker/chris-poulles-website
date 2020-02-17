@@ -11,7 +11,7 @@
             {{#if year}}<time itemprop="datePublished" datetime="{{year}}">{{year}}</time> | {{/if}}
             {{#if countries}}<span itemprop="locationCreated">{{countries}}</span> | {{/if}}
             {{#if genre}}<span itemprop="genre">{{genre}}</span> |{{/if}}
-            <time itemprop="duration" datetime="{{length}}M">{{length}}'</time>
+            {{#if length}}<time itemprop="duration" datetime="{{length}}M">{{length}}'</time>{{/if}}
         </span>
     </header>
     <main class="film__main">

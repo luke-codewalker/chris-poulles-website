@@ -1,2 +1,10 @@
-<div class="lightbox" data-src={{this.src}} data-lightbox-id={{this.id}}>
+{{#with this.image}}
+<div class="lightbox">
+    <img class="thumbnail" src="{{file.url}}?w=300" alt="{{title}}" itemprop="image" />
+    <div class="fullview">
+    <button class="fullview__close">
+        <i class="icofont-close-line fullview__close__icon"></i>
+    </button>
+    </div>
 </div>
+{{/with}}

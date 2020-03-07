@@ -4,6 +4,7 @@ import HistoryManager from './lib/history-manager';
 import Modal from './components/modal/modal';
 import ImageGallery from './components/image-gallery/image-gallery';
 import Link from './components/link/link';
+import Lightbox from './components/lightbox/lightbox';
 
 window.addEventListener('DOMContentLoaded', () => {
   const historyManager = new HistoryManager();
@@ -38,6 +39,10 @@ window.addEventListener('DOMContentLoaded', () => {
       initOptions: {
         historyManager,
       },
+    },
+    {
+      selector: '.lightbox',
+      componentClass: Lightbox,
     }]);
 
   historyManager.replaceState({}, document.title, window.location.href);

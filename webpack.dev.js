@@ -17,7 +17,7 @@ module.exports = async () => {
   const films = await dataService.getFilms({ shouldDumpData: true });
   const about = await dataService.getAbout({ shouldDumpData: true });
   const metaInfo = await dataService.getMetaInfo({ shouldDumpData: true });
-  const common = commonWebpackConfig({ films, about, metaInfo });
+  const common = await commonWebpackConfig({ films, about, metaInfo });
 
   return merge.smartStrategy({ 'module.rules.use': 'prepend' })(common, {
     mode: 'development',

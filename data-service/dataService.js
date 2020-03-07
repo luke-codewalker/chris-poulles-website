@@ -15,6 +15,10 @@ module.exports = class DataService {
     this.constructor.instance = this;
   }
 
+  static dumpData(name, data, basePath = __dirname) {
+    fs.writeFileSync(path.join(basePath, `${name}.dump.json`), JSON.stringify(data));
+  }
+
   async getFilms(opts) {
     const options = { ...METHOD_OPTIONS_DEFAULTS, ...opts };
     const data = await this.contentClient.getEntries({
@@ -36,7 +40,7 @@ module.exports = class DataService {
       }
     });
 
-    if (options.shouldDumpData) this.dumpData('films', films);
+    if (options.shouldDumpData) DataService.dumpData('films', films);
 
     return films;
   }
@@ -47,7 +51,7 @@ module.exports = class DataService {
       content_type: 'about',
     });
 
-    if (options.shouldDumpData) this.dumpData('about', data.items[0].fields);
+    if (options.shouldDumpData) DataService.dumpData('about', data.items[0].fields);
 
     return data.items[0].fields;
   }
@@ -58,12 +62,8 @@ module.exports = class DataService {
       content_type: 'metaInfo',
     });
 
-    if (options.shouldDumpData) this.dumpData('meta', data.items[0].fields);
+    if (options.shouldDumpData) DataService.dumpData('meta', data.items[0].fields);
 
     return data.items[0].fields;
-  }
-
-  static dumpData(name, data, basePath = __dirname) {
-    fs.writeFileSync(path.join(basePath, `${name}.dump.json`), JSON.stringify(data));
   }
 };

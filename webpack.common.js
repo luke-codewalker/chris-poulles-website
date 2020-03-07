@@ -2,12 +2,22 @@ const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = (content) => {
+module.exports = async (content) => {
   // Compile a list with all partial directory so they can be referenced via name
-  const components = fs.readdir(path.resolve(__dirname, 'src/components')).map((componentName) => path.join(__dirname, 'src', 'components', componentName));
+  const componentNames = await new Promise((resolve, reject) => {
+    fs.readdir(
+      path.resolve(__dirname, 'src/components'),
+      (err, data) => {
+        if (err) reject(err);
+        resolve(data);
+      },
+    );
+  });
+
+  const componentPaths = componentNames.map((componentName) => path.join(__dirname, 'src', 'components', componentName));
   const partialDirs = [
     path.join(__dirname, 'src', 'layouts'),
-    ...components,
+    ...componentPaths,
   ];
 
   // Return the final assembled config object

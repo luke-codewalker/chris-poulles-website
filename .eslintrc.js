@@ -16,5 +16,11 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    "no-bitwise": [
+      "error",
+      {
+        "int32Hint": true
+      }
+    ]
   },
 };

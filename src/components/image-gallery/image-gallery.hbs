@@ -6,8 +6,8 @@
     {{#each images}}
     {{#with this.fields}}
         <div class="image-gallery__image">
-            <img src="{{file.url}}?w=300" alt="{{title}}" itemprop="image" />
-            {{> lightbox src=file.url id="test"}}
+            <img src="{{file.url}}?w=300" alt="{{title}}" itemprop="image" data-lightbox-target="{{hashUrl file.url}}" />
+            {{> lightbox src=file.url id=(hashUrl file.url)}}
         </div>
     {{/with}}
     {{/each}}

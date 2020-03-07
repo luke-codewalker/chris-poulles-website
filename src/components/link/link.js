@@ -1,22 +1,22 @@
-import BaseComponent from "../../lib/base-component";
+import BaseComponent from '../../lib/base-component';
 
-export class Link extends BaseComponent {
-    constructor(selector) {
-        super(selector);
-        this.history = {};
-    }
+export default class Link extends BaseComponent {
+  constructor(selector) {
+    super(selector);
+    this.history = {};
+  }
 
-    onLinkClicked(e) {
-        e.preventDefault();
-        this.history.pushState({}, document.title, e.target.href)
-    }
+  onLinkClicked(e) {
+    e.preventDefault();
+    this.history.pushState({}, document.title, e.target.href);
+  }
 
-    init(options) {
-        this.history = options.historyManager;
-        this.addEventListeners({
-            ":self": {
-                "click": e => this.onLinkClicked(e)
-            }
-        })
-    }
+  init(options) {
+    this.history = options.historyManager;
+    this.addEventListeners({
+      ':self': {
+        click: (e) => this.onLinkClicked(e),
+      },
+    });
+  }
 }

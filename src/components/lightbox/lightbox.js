@@ -1,12 +1,8 @@
-import BaseComponent from "../../lib/base-component";
+import BaseComponent from '../../lib/base-component';
 
-export class Lightbox extends BaseComponent {
-    constructor(selector) {
-        super(selector);
-    }
-
-    init(options) {
-        this.addEventListeners({});
-        console.log("Lightbox is ready!")
-    }
+export default class Lightbox extends BaseComponent {
+  init() {
+    this.addEventListeners({});
+    console.log('Lightbox is ready!');
+  }
 }

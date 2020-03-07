@@ -30,7 +30,7 @@ export default class ImageGallery extends BaseComponent {
   }
 
   updateSliderPosition() {
-    this.slider.style.transform = `translateX(-${this.position * this.sliderItemWidth}px)`;
+    this.slider.style.left = `-${this.position * this.sliderItemWidth}px`;
   }
 
   updateButtonVisibility() {

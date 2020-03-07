@@ -4,12 +4,9 @@
     </button>
     <div class="image-gallery__images">
     {{#each images}}
-    {{#with this.fields}}
         <div class="image-gallery__image">
-            <img src="{{file.url}}?w=300" alt="{{title}}" itemprop="image" data-lightbox-target="{{hashUrl file.url}}" />
-            {{> lightbox src=file.url id=(hashUrl file.url)}}
+            {{> lightbox image=this.fields}}
         </div>
-    {{/with}}
     {{/each}}
     </div>
     <button class="image-gallery__button--right">

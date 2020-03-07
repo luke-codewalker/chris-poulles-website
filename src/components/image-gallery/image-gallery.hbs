@@ -6,7 +6,8 @@
     {{#each images}}
     {{#with this.fields}}
         <div class="image-gallery__image">
-            <img src="{{file.url}}" alt="{{title}}" itemprop="image" />
+            <img src="{{file.url}}?w=300" alt="{{title}}" itemprop="image" />
+            {{> lightbox src=file.url id="test"}}
         </div>
     {{/with}}
     {{/each}}

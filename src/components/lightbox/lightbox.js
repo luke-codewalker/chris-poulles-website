@@ -1,12 +1,12 @@
 import BaseComponent from "../../lib/base-component";
 
-export class {{properCase name}} extends BaseComponent {
+export class Lightbox extends BaseComponent {
     constructor(selector) {
         super(selector);
     }
 
     init(options) {
         this.addEventListeners({});
-        console.log("{{properCase name}} is ready!")
+        console.log("Lightbox is ready!")
     }
 }

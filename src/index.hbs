@@ -10,20 +10,24 @@
 
     {{#> section title="fiction"}}
     {{#each films.fiction}}
-    {{> teaser-tile film=this}}
-    {{> film film=this}}
+        {{> teaser-tile film=this}}
+        {{#> modal}}
+            {{> film film=this}}
+        {{/modal}}
     {{/each}}
     {{/section}}
 
     {{#> section title="documentary"}}
     {{#each films.documentary}}
-    {{> teaser-tile film=this}}
-    {{> film film=this}}
+        {{> teaser-tile film=this}}
+        {{#> modal}}
+            {{> film film=this}}
+        {{/modal}}
     {{/each}}
     {{/section}}
 
     {{#> section title="about"}}
-    {{>about}}
+        {{>about}}
     {{/section}}
 </main>
 {{> footer}}

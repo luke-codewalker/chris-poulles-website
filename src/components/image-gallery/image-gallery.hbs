@@ -4,11 +4,9 @@
     </button>
     <div class="image-gallery__images">
     {{#each images}}
-    {{#with this.fields}}
         <div class="image-gallery__image">
-            <img src="{{file.url}}" alt="{{title}}" itemprop="image" />
+            {{> lightbox image=this.fields}}
         </div>
-    {{/with}}
     {{/each}}
     </div>
     <button class="image-gallery__button--right">

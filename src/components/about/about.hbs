@@ -5,4 +5,10 @@
     {{#if about.curriculumVitae.fields.file.url}}
     {{#>link external="true" href=about.curriculumVitae.fields.file.url}}Download {{about.curriculumVitae.fields.description}} here.{{/link}}
     {{/if}}
+    <div class="about__portrait">
+        <picture>
+            <source media="(min-width: 640px)" srcset="{{about.portraitPhoto.fields.file.url}}">
+            <img src="{{about.portraitPhoto.fields.file.url}}?w=640" alt="{{about.portraitPhoto.fields.description}}">
+        </picture>
+    </div>
 </div>

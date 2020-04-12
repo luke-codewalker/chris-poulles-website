@@ -1,26 +1,30 @@
 $component: ".header";
 
 #{$component} {
-    padding: 20px 20px 40px 20px;
-    position: relative;
-    margin-bottom: -20px;
-    z-index: 1;
-    overflow: visible;
-    background-position: center bottom;
-    background-size: cover;
-
+    padding: 20px;
+    max-width: $tablet;
+    margin: 0 auto;
 
     &__heading {
         margin: 0;
         text-align: center;
-        font-size: 1.5rem;
-        letter-spacing: 0.25ch;
+        font-size: 3rem;
+        letter-spacing: 0.125ch;
     }
 
     &__subheading {
         display: block;
         text-align: center;
-        letter-spacing: 0.5ch;
-        font-size: 1rem;
+        font-size: 1.25rem;
+    }
+
+    @media (min-width: $smartphone-landscape) {
+        &__heading {
+            text-align: left;
+        }
+    
+        &__subheading {
+            text-align: right;
+        }
     }
 }

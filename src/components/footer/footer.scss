@@ -16,10 +16,9 @@ $component: ".footer";
         &--imprint {
             @extend .footer__link;
         }
-        @media (min-width: $tablet) {
-            &--copy {
-                margin-left: auto;
-            }
+        
+        &--copy {
+            margin-left: auto;
         }
     }
 }

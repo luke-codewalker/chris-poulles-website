@@ -1,10 +1,7 @@
 {{#with film}}
 <div class="film" itemscope itemtype="http://schema.org/Movie">
     <header class="film__header">
-        <div>
-            <h3 class="film__header__title" itemprop="name">{{title}}</h3>
-            <span class="film__header__subtitle heading">{{subtitle}}</span>
-        </div>
+        <h3 class="film__header__title" itemprop="name">{{title}}</h3>
 
         <span class="film__header__details">
             {{#if year}}<time itemprop="datePublished" datetime="{{year}}">{{year}}</time> | {{/if}}

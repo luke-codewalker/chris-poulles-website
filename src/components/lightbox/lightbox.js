@@ -3,7 +3,6 @@ import BaseComponent from '../../lib/base-component';
 export default class Lightbox extends BaseComponent {
   constructor(root) {
     super(root);
-    this.thumbnail = null;
     this.fullview = null;
     this.loadingDots = null;
     this.src = '';
@@ -27,7 +26,6 @@ export default class Lightbox extends BaseComponent {
   }
 
   init() {
-    this.thumbnail = this.componentRoot.querySelector('.thumbnail');
     this.fullview = this.componentRoot.querySelector('.fullview');
     this.loadingDots = this.componentRoot.querySelector('.loading-dots');
     this.src = this.componentRoot.dataset.src;

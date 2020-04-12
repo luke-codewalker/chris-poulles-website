@@ -4,6 +4,7 @@ $component: ".navbar";
   position: sticky;
   top: 0;
   background-color: white;
+  text-transform: uppercase;
 
   &__list {
     max-width: $tablet;
@@ -13,19 +14,22 @@ $component: ".navbar";
     list-style-type: none;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     width: 100%;
+    overflow: auto;
 
     &__link {
       color: $text-color;
       text-decoration: none;
+      font-size: 1.25rem;
+      margin-right: 1rem;
 
       @media (min-width: $tablet) {
-        letter-spacing: 0.33ch;
+        letter-spacing: 0.10ch;
       }
 
       &.current {
-        font-weight: bold;
+        font-size: 1.5rem;
       }
     }
   }

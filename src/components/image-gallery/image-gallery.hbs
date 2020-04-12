@@ -3,15 +3,17 @@
         <i class="icofont-thin-left icofont-md"></i>
     </button>
     <div class="image-gallery__images">
-    {{#each images}}
+        {{#each images}}
         <div class="image-gallery__image">
             {{#> lightbox image=this.fields}}
-                <picture>
-                    <img src="{{../this.fields.file.url}}?w=300" alt="">
-                </picture>
+            <picture>
+                <source media="(min-width: 1024px)" srcset="{{../this.fields.file.url}}?w=1024">
+                <source media="(min-width: 720px)" srcset="{{../this.fields.file.url}}?w=720">
+                <img src="{{../this.fields.file.url}}?w=420" alt="{{../this.fields.description}}">
+            </picture>
             {{/lightbox}}
         </div>
-    {{/each}}
+        {{/each}}
     </div>
     <button class="image-gallery__button--right">
         <i class="icofont-thin-right icofont-md"></i>

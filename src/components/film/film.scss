@@ -25,12 +25,10 @@ $component: ".film";
 
     
     &__main {
+        margin-bottom: 2rem;
+
         &__description{
             white-space: pre-line;
-        }
-
-        .image-gallery {
-            margin-top: 2rem;
         }
     }
 

@@ -2,8 +2,6 @@ $component: ".image-gallery";
 
 #{$component} {
     position: relative;
-    height: 320px;
-    overflow: hidden;
 
     box-sizing: border-box;
     * {
@@ -11,15 +9,14 @@ $component: ".image-gallery";
     }
 
     &__images {
-        position: relative;
-        left: 0;
         list-style-type: none;
         margin: 0;
         padding: 0;
         display: flex;
         height: 100%;
-        // transform: translateX(0);
-        transition: left 0.33s;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x proximity;
     }
 
     &__image {
@@ -27,19 +24,6 @@ $component: ".image-gallery";
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 10px;
-
-        @media (min-width: 720px) {
-            flex: 0 0 50%;
-        }
-
-        @media (min-width: 1024px) {
-            flex: 0 0 33%;
-        }
-
-        @media (min-width: 1400px) {
-            flex: 0 0 25%;
-        }
 
         img {
             object-fit: contain;
@@ -58,9 +42,13 @@ $component: ".image-gallery";
         background: none;
         color: white;
         text-shadow: 0 0 4px rgba(0,0,0,0.9);
-        padding: 0 2rem;
+        padding: 0 0.5rem;
         font-size: 2rem;
         cursor: pointer;
+
+        @media (min-width: $tablet) {
+            padding: 0 2rem;
+        }
 
         i {
             font-weight: bold;

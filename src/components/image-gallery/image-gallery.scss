@@ -26,6 +26,7 @@ $component: ".image-gallery";
         align-items: center;
 
         img {
+            display: block;
             object-fit: contain;
             max-width: 100%;
             max-height: 100%;

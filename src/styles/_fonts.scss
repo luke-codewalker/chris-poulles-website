@@ -1,0 +1,89 @@
+/*! 
+* @package IcoFont 
+* @version 1.0.1 
+* @author IcoFont https://icofont.com 
+* @copyright Copyright (c) 2015 - 2019 IcoFont 
+* @license - https://icofont.com/license/
+*/
+
+@font-face
+{
+  font-family: "IcoFont";
+  font-weight: normal;
+  font-style: "Regular";
+  src: url("~styles/fonts/icofont.woff2") format("woff2"),
+  url("~styles/fonts/icofont.woff") format("woff");
+}
+
+[class^="icofont-"], [class*=" icofont-"]
+{
+  font-family: 'IcoFont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+.icofont-close-line:before
+{
+  content: "\eee1";
+}
+
+.icofont-thin-left:before
+{
+  content: "\eac9";
+}
+
+.icofont-thin-right:before
+{
+  content: "\eaca";
+}
+
+.icofont-instagram:before
+{
+  content: "\ed46";
+}
+
+.icofont-ui-email:before
+{
+  content: "\ec56";
+}
+
+.icofont-copyright:before
+{
+  content: "\eef3";
+}
+
+@font-face
+{
+  font-family: "FamiliarProBold";
+  font-weight: bold;
+  font-style: "Regular";
+  src: url("~styles/fonts/FamiliarProBold.otf") format("opentype"),
+}
+
+@font-face
+{
+  font-family: "KannadaSangamMN";
+  font-weight: normal;
+  font-style: "Regular";
+  src: url("~styles/fonts/KannadaSangamMN.ttf") format("truetype"),
+}
+
+@font-face
+{
+  font-family: "KannadaSangamMN";
+  font-weight: bold;
+  font-style: "Regular";
+  src: url("~styles/fonts/KannadaSangamMN-Bold.ttf") format("truetype"),
+}
+
+

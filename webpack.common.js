@@ -26,6 +26,11 @@ module.exports = async (content) => {
       index: [path.resolve(__dirname, 'src/index.js'),
         path.resolve(__dirname, 'src/index.scss')],
     },
+    resolve: {
+      alias: {
+        styles: path.resolve(__dirname, 'src', 'styles'),
+      },
+    },
     output: {
       filename: '[name].js',
       path: path.resolve(__dirname, 'dist'),
@@ -47,10 +52,10 @@ module.exports = async (content) => {
         ],
       },
       {
-        test: /\.(eot|ttf|woff2?)$/i,
+        test: /\.(eot|ttf|woff2?|otf)$/i,
         loader: 'file-loader',
         options: {
-          name: '[name]_[hash:5].[ext]',
+          name: '[name].[ext]',
         },
       },
       ],

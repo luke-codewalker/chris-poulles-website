@@ -26,6 +26,7 @@ $component: ".navbar";
       margin-right: 1rem;
 
       @media (min-width: $tablet) {
+        margin-right: 0;
         letter-spacing: 0.10ch;
       }
 

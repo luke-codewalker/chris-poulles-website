@@ -1,14 +1,9 @@
 <footer class="footer">
     {{#>link class="footer__link--instagram" href=(concat "https://www.instagram.com/" about.instagramProfile) external=true}}
         <i class="icofont-instagram"></i>
-        Instagram
     {{/link}}
     {{#>link class="footer__link--mail" href=(concat "mailto:" about.eMail "?subject=Inquiry%20over%20your%20website") external=true}}
-        <i class="icofont-ui-email"></i>
-        E-Mail
+        // E-Mail
     {{/link}}
-    <span class="footer__link--copy"><i class="icofont-copyright"></i> 2019 Chris Poulles</span>
-    <span class="footer__link--imprint">
-    {{> imprint}}
-    </span>
+    <span class="footer__link--copy">{{currentYear}} Chris Poulles</span>
 </footer>

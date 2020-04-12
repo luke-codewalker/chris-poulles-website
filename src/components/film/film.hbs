@@ -19,13 +19,20 @@
         {{/if}}
     </main>
     <footer class="film__footer">
-        {{#if credits}}
-        {{> titled-list title="Credits" list=credits itemprop="contributor"}}
-        {{/if}}
+        <div class="film__footer__poster">
+            {{#if posterImage}}
+                <img src="{{posterImage.fields.file.url}}" alt="">
+            {{/if}}
+        </div>
+        <div class="film__footer__info">
+            {{#if credits}}
+            {{> titled-list title="Credits" list=credits itemprop="contributor"}}
+            {{/if}}
 
-        {{#if publicity}}
-        {{> titled-list title="Festival and Awards" list=publicity itemprop="award"}}
-        {{/if}}
+            {{#if publicity}}
+            {{> titled-list title="Festival and Awards" list=publicity itemprop="award"}}
+            {{/if}}
+        </div>
     </footer>
 </div>
 {{/with}}

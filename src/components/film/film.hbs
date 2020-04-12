@@ -19,11 +19,19 @@
         {{/if}}
     </main>
     <footer class="film__footer">
+        {{#if posterImage}}
+
         <div class="film__footer__poster">
-            {{#if posterImage}}
-                <img src="{{posterImage.fields.file.url}}" alt="">
-            {{/if}}
+            {{#> lightbox image=posterImage.fields}}
+            <picture>
+                <source media="(min-width: 1024px)" srcset="{{../posterImage.fields.file.url}}?w=640">
+                <source media="(min-width: 720px)" srcset="{{../posterImage.fields.file.url}}?w=320">
+                <img src="{{../posterImage.fields.file.url}}?w=420" alt="{{../posterImage.fields.description}}">
+            </picture>
+            {{/lightbox}}
         </div>
+        {{/if}}
+
         <div class="film__footer__info">
             {{#if credits}}
             {{> titled-list title="Credits" list=credits itemprop="contributor"}}

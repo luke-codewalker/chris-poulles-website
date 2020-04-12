@@ -1,6 +1,8 @@
 {{#with this.image}}
 <div class="lightbox" data-src="{{file.url}}">
-    <img class="thumbnail" src="{{file.url}}?w=300" alt="{{title}}" itemprop="image" />
+    <div class="thumbnail">
+    {{> @partial-block}}
+    </div>
     <div class="fullview">
     <button class="fullview__close">
         <i class="icofont-close-line fullview__close__icon"></i>

@@ -5,7 +5,11 @@
     <div class="image-gallery__images">
     {{#each images}}
         <div class="image-gallery__image">
-            {{> lightbox image=this.fields}}
+            {{#> lightbox image=this.fields}}
+                <picture>
+                    <img src="{{../this.fields.file.url}}?w=300" alt="">
+                </picture>
+            {{/lightbox}}
         </div>
     {{/each}}
     </div>

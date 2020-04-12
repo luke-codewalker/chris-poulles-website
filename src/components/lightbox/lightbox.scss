@@ -1,6 +1,10 @@
 $component: ".lightbox";
 
 #{$component} {
+    .thumbnail {
+        cursor: pointer;
+    }
+
     .fullview {
         display: none;
         position: fixed;

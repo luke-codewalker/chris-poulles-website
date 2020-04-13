@@ -2,11 +2,13 @@ $component: ".section";
 
 #{$component} {
     min-height: 50vh;
-    &:not(:first-of-type) {
-        padding-top: 4rem;
-    }
 
     @media (min-width: $tablet) {
         min-height: 100vh;
+    }
+
+    padding-top: 4.5rem;
+    &:first-of-type {
+        margin-top: -4.5rem;
     }
 }

@@ -39,6 +39,7 @@ $component: ".lightbox";
             &__icon {
                 cursor: pointer;
                 font-size: 2.5rem;
+                text-shadow: 0 0 2px $bg-dark-transparent;
             }
         }
 

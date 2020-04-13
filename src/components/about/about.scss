@@ -3,6 +3,7 @@ $component: ".about";
 #{$component} {
     @include content-column;
     @include padding;
+    padding-top: 0;
 
     &__statement {
         white-space: pre-line;

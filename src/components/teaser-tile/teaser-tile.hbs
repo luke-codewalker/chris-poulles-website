@@ -1,8 +1,15 @@
 {{#with film}}
-<div class="teaser-tile" title="{{title}}"
-    style="background-image: url('{{teaserImage.fields.file.url}}')">
-{{#>link href=urlSlug internal=true}}
+<div class="teaser-tile" title="{{title}}">
+    {{#>link href=urlSlug internal=true}}
+    <picture>
+        <source media="(min-width: 1400px)" srcset="{{teaserImage.fields.file.url}}">
+        <source media="(min-width: 1200px)" srcset="{{teaserImage.fields.file.url}}?w=1400">
+        <source media="(min-width: 1024px)" srcset="{{teaserImage.fields.file.url}}?w=1200">
+        <source media="(min-width: 720px)" srcset="{{teaserImage.fields.file.url}}?w=1024">
+        <source media="(min-width: 420px)" srcset="{{teaserImage.fields.file.url}}?w=720">
+        <img src="{{teaserImage.fields.file.url}}?w=420" alt="{{teaserImage.fields.description}}">
+    </picture>
     <h2 class="teaser-tile__title">{{title}}</h2>
-{{/link}}
+    {{/link}}
 </div>
 {{/with}}

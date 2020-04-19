@@ -1,13 +1,23 @@
-@import "../../styles/variables";
-@import "../../styles/mixins";
-
 $component: ".about";
 
 #{$component} {
     @include content-column;
     @include padding;
+    padding-top: 0;
 
     &__statement {
         white-space: pre-line;
+        margin-bottom: 2rem;
+    }
+
+    &__portrait {
+        max-width: $tablet;
+        margin: 2rem auto 0 auto;
+        padding: 1rem;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 }

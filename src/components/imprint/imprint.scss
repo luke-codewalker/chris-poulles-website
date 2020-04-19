@@ -1,7 +1,0 @@
-@import "../../styles/mixins";
-$component: ".imprint";
-
-#{$component} {
-    @include content-column;
-    @include padding;
-}

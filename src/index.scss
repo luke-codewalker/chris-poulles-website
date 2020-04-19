@@ -1,5 +1,5 @@
+@import "./styles/_fonts.scss";
 @import "./styles/base.scss";
-@import "./styles/icofont.css";
 @import "./components/header/header.scss";
 @import "./components/footer/footer.scss";
 @import "./components/teaser-tile/teaser-tile.scss";
@@ -10,7 +10,6 @@
 @import "./components//image-gallery/image-gallery.scss";
 @import "./components/titled-list/titled-list.scss";
 @import "./components/showreel/showreel.scss";
-@import "./components/separated-list/separated-list.scss";
-@import "./components/imprint/imprint.scss";
 @import "./components/link/link.scss";
 @import "./components/about/about.scss";
+@import "./components/lightbox/lightbox.scss";

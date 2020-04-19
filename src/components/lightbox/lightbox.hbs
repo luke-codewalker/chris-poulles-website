@@ -1,0 +1,17 @@
+{{#with this.image}}
+<div class="lightbox" data-src="{{file.url}}">
+    <div class="thumbnail" title="Click to enlarge">
+    {{> @partial-block}}
+    </div>
+    <div class="fullview">
+    <button class="fullview__close">
+        <i class="icofont-close-line fullview__close__icon"></i>
+    </button>
+    <div class="loading-dots">
+        <span class="dot dot--1"></span>
+        <span class="dot dot--2"></span>
+        <span class="dot dot--3"></span>
+    </div>
+    </div>
+</div>
+{{/with}}

@@ -1,17 +1,13 @@
-{{#> modal}}
 {{#with film}}
 <div class="film" itemscope itemtype="http://schema.org/Movie">
     <header class="film__header">
-        <div>
-            <h3 class="film__header__title" itemprop="name">{{title}}</h3>
-            <span class="film__header__subtitle heading">{{subtitle}}</span>
-        </div>
+        <h3 class="film__header__title" itemprop="name">{{title}}</h3>
 
         <span class="film__header__details">
             {{#if year}}<time itemprop="datePublished" datetime="{{year}}">{{year}}</time> | {{/if}}
             {{#if countries}}<span itemprop="locationCreated">{{countries}}</span> | {{/if}}
             {{#if genre}}<span itemprop="genre">{{genre}}</span> |{{/if}}
-            <time itemprop="duration" datetime="{{length}}M">{{length}}'</time>
+            {{#if length}}<time itemprop="duration" datetime="{{length}}M">{{length}}'</time>{{/if}}
         </span>
     </header>
     <main class="film__main">
@@ -23,14 +19,27 @@
         {{/if}}
     </main>
     <footer class="film__footer">
-        {{#if credits}}
-        {{> titled-list title="Credits" list=credits itemprop="contributor"}}
+        {{#if posterImage}}
+        <div class="film__footer__poster">
+            {{#> lightbox image=posterImage.fields}}
+            <picture>
+                <source media="(min-width: 1024px)" srcset="{{../posterImage.fields.file.url}}?w=640">
+                <source media="(min-width: 720px)" srcset="{{../posterImage.fields.file.url}}?w=320">
+                <img src="{{../posterImage.fields.file.url}}?w=420" alt="{{../posterImage.fields.description}}">
+            </picture>
+            {{/lightbox}}
+        </div>
         {{/if}}
 
-        {{#if publicity}}
-        {{> titled-list title="Festival and Awards" list=publicity itemprop="award"}}
-        {{/if}}
+        <div class="film__footer__info">
+            {{#if credits}}
+            {{> titled-list title="Credits" list=credits itemprop="contributor"}}
+            {{/if}}
+
+            {{#if publicity}}
+            {{> titled-list title="Festival and Awards" list=publicity itemprop="award"}}
+            {{/if}}
+        </div>
     </footer>
 </div>
 {{/with}}
-{{/modal}}

@@ -3,8 +3,7 @@
         frameborder="0"></iframe>
 
     <div class="showreel__info">
-        <p>Based in</p>
-        {{> separated-list list=about.locations}}
+        <span class="showreel__info__location">Based in {{about.locations}} // </span>
         {{#>link href=(concat "mailto:" about.eMail "?subject=Inquiry%20over%20your%20website")}}
             {{about.eMail}}
         {{/link}}

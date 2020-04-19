@@ -1,15 +1,16 @@
 $component: ".titled-list";
 
 #{$component} {
-    margin-top: 2rem;
+    margin-bottom: 2rem;
 
     h4 {
         margin: 0;
+        text-transform: uppercase;
     }
 
     ul {
         list-style-type: none;
-        padding-left: 1em;
-        margin-top: 0.5em;
+        padding-left: 0;
+        margin-top: 0.5rem;
     }
 }

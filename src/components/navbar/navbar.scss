@@ -1,31 +1,36 @@
-$component: ".navbar";
+$component: '.navbar';
 
 #{$component} {
   position: sticky;
   top: 0;
+  z-index: $foreground;
   background-color: white;
+  text-transform: uppercase;
 
   &__list {
     max-width: $tablet;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0.5rem;
 
     list-style-type: none;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     width: 100%;
+    overflow: auto;
 
     &__link {
       color: $text-color;
       text-decoration: none;
+      margin-right: 0.25rem;
 
       @media (min-width: $tablet) {
-        letter-spacing: 0.33ch;
+        margin-right: 0;
+        letter-spacing: 0.1ch;
       }
 
       &.current {
-        font-weight: bold;
+        font-size: 1.2rem;
       }
     }
   }

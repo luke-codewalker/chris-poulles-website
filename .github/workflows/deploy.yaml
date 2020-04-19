@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - master
-  # TODO: enable CMS trigger once content is stable
-  # repository_dispatch:
+  repository_dispatch:
 
 jobs:
   build:

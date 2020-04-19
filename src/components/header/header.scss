@@ -1,30 +1,37 @@
-$component: ".header";
+$component: '.header';
 
 #{$component} {
-    padding: 20px;
-    max-width: $tablet;
-    margin: 0 auto;
+  padding: 20px;
+  max-width: $tablet;
+  margin: 0 auto;
 
+  &__heading {
+    margin: 0;
+    text-align: center;
+    font-size: 1.75rem;
+    letter-spacing: 0.125ch;
+    text-align: left;
+  }
+
+  &__subheading {
+    display: block;
+    text-align: center;
+    text-align: right;
+  }
+
+  @media (min-width: $wide-smartphone) {
     &__heading {
-        margin: 0;
-        text-align: center;
-        font-size: 3rem;
-        letter-spacing: 0.125ch;
+      font-size: 2.5rem;
     }
 
     &__subheading {
-        display: block;
-        text-align: center;
-        font-size: 1.25rem;
+      font-size: 1.25rem;
     }
+  }
 
-    @media (min-width: $smartphone-landscape) {
-        &__heading {
-            text-align: left;
-        }
-    
-        &__subheading {
-            text-align: right;
-        }
+  @media (min-width: $smartphone-landscape) {
+    &__heading {
+      font-size: 3rem;
     }
+  }
 }

@@ -10,7 +10,7 @@ $component: '.navbar';
   &__list {
     max-width: $tablet;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0.5rem;
 
     list-style-type: none;
     display: flex;
@@ -22,8 +22,7 @@ $component: '.navbar';
     &__link {
       color: $text-color;
       text-decoration: none;
-      font-size: 1.25rem;
-      margin-right: 1rem;
+      margin-right: 0.25rem;
 
       @media (min-width: $tablet) {
         margin-right: 0;
@@ -31,7 +30,7 @@ $component: '.navbar';
       }
 
       &.current {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
     }
   }

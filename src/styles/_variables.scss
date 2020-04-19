@@ -1,6 +1,6 @@
 // fonts
-$font: "KannadaSangamMN", sans-serif;
-$heading-font: "FamiliarProBold", sans-serif;
+$font: 'KannadaSangamMN', sans-serif;
+$heading-font: 'FamiliarProBold', sans-serif;
 
 // breakpoints
 $smartphone: 321px;
@@ -13,4 +13,8 @@ $text-color: black;
 $text-color-light: #666;
 $text-color-bright: white;
 $bg-dark: #333;
-$bg-dark-transparent: rgba(0,0,0,0.85);
+$bg-dark-transparent: rgba(0, 0, 0, 0.85);
+
+// z-indices
+$background: -1;
+$foreground: 1;

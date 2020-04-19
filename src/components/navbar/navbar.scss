@@ -1,8 +1,9 @@
-$component: ".navbar";
+$component: '.navbar';
 
 #{$component} {
   position: sticky;
   top: 0;
+  z-index: $foreground;
   background-color: white;
   text-transform: uppercase;
 
@@ -26,7 +27,7 @@ $component: ".navbar";
 
       @media (min-width: $tablet) {
         margin-right: 0;
-        letter-spacing: 0.10ch;
+        letter-spacing: 0.1ch;
       }
 
       &.current {

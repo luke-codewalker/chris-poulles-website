@@ -10,7 +10,7 @@ $component: '.navbar';
   &__list {
     max-width: $tablet;
     margin: 0 auto;
-    padding: 0.5rem;
+    padding: 1rem 0.25rem;
 
     list-style-type: none;
     display: flex;
@@ -18,6 +18,9 @@ $component: '.navbar';
     align-items: center;
     width: 100%;
     overflow: auto;
+    @media (min-width: $tablet) {
+      padding: 1rem;
+    }
 
     &__link {
       color: $text-color;

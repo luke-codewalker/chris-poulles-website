@@ -33,5 +33,5 @@ jobs:
         run: CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} npm run build
 
       - name: Deploy to now
-        run: NOW_TOKEN=${{ secrets.NOW_TOKEN }} npm run deploy:prod
+        run: VERCEL_TOKEN=${{ secrets.VERCEL_TOKEN }} npm run deploy:prod
   

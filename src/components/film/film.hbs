@@ -25,7 +25,8 @@
             <picture>
                 <source media="(min-width: 1024px)" srcset="{{../posterImage.fields.file.url}}?w=640">
                 <source media="(min-width: 720px)" srcset="{{../posterImage.fields.file.url}}?w=320">
-                <img src="{{../posterImage.fields.file.url}}?w=420" alt="{{../posterImage.fields.description}}">
+                <img itemprop="image" src="{{../posterImage.fields.file.url}}?w=420"
+                    alt="{{../posterImage.fields.description}}">
             </picture>
             {{/lightbox}}
         </div>

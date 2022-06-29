@@ -24,7 +24,7 @@ module.exports = async (content) => {
   return {
     entry: {
       index: [path.resolve(__dirname, 'src/index.js'),
-        path.resolve(__dirname, 'src/index.scss')],
+      path.resolve(__dirname, 'src/index.scss')],
     },
     resolve: {
       alias: {
@@ -39,13 +39,13 @@ module.exports = async (content) => {
       rules: [{
         test: /\.hbs$/,
         loader: 'handlebars-loader',
-        query: {
+        options: {
           partialDirs,
           helperDirs: [path.resolve(__dirname, 'src/helpers')],
         },
       },
       {
-        test: /\.s?css$/,
+        test: /\.s?css$/i,
         use: [
           { loader: 'css-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: { sourceMap: true } },
@@ -53,10 +53,7 @@ module.exports = async (content) => {
       },
       {
         test: /\.(eot|ttf|woff2?|otf)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-        },
+        type: 'asset/resource',
       },
       ],
     },

@@ -1,6 +1,5 @@
 const merge = require('webpack-merge');
 const glob = require('glob');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const DataService = require('./data-service/dataService');
 const commonWebpackConfig = require('./webpack.common');
@@ -23,16 +22,13 @@ module.exports = async () => {
     module: {
       rules: [
         {
-          test: /\.s?css$/,
+          test: /\.s?css$/i,
           use: [
-            MiniCssExtractPlugin.loader,
+            MiniCssExtractPlugin.loader
           ],
         }],
     },
     plugins: [
-      new PurgecssPlugin({
-        paths: glob.sync(`${__dirname}/src/**/*.{hbs,js}`, { nodir: true }),
-      }),
       new MiniCssExtractPlugin({
         filename: '[name].css',
         chunkFilename: '[id].css',

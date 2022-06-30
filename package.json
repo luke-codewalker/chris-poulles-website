@@ -7,8 +7,6 @@
     "build": "webpack --config webpack.prod.js",
     "start": "nodemon --exec \"webpack-dev-server --config webpack.dev.js\"",
     "add": "plop",
-    "deploy:prod": "vercel dist --prod --confirm --token $VERCEL_TOKEN --local-config ../vercel.json",
-    "deploy:dev": "vercel dist --confirm --token $VERCEL_TOKEN --local-config ../vercel.json",
     "lint": "eslint ./**/*.js",
     "lint-fix": "eslint ./**/*.js --fix"
   },
@@ -33,7 +31,6 @@
     "plop": "^2.7.4",
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
-    "vercel": "^20.1.1",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.2",

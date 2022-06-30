@@ -19,7 +19,7 @@ module.exports = async () => {
   const metaInfo = await dataService.getMetaInfo({ shouldDumpData: true });
   const common = await commonWebpackConfig({ films, about, metaInfo });
 
-  return merge.smartStrategy({ 'module.rules.use': 'prepend' })(common, {
+  return merge.mergeWithRules({ module: { rules: { use: 'prepend' } } })(common, {
     mode: 'development',
     module: {
       rules: [
@@ -31,13 +31,12 @@ module.exports = async () => {
         }],
     },
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
+      static: { directory: path.join(__dirname, 'dist') },
       hot: true,
       compress: true,
       host: '0.0.0.0',
       port: 9000,
       historyApiFallback: true,
-      overlay: true,
     },
   });
 };

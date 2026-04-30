@@ -1,6 +1,6 @@
 # Website for Chris Poulles
 
-![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=chris-poulles)
+> This project is now archived and read-only. Active development happens in this fork https://github.com/cpoulles/chris-poulles-website
 
 This is the source code for [chris-poulles.com](https://chris-poulles.com), the website of cinematographer Chris Poulles.
 

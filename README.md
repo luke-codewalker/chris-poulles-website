@@ -15,8 +15,8 @@ During the build process content like texts and images is pulled from the relate
 
 ## Maintenance information
 
-- **Update content** like images, texts and links on Contentful and trigger a [deployment](https://vercel.com/changelog/manually-create-deployments-by-commit-or-branch-in-the-dashboard) on Vercel 
+- **Update content** like images, texts and links on Contentful and trigger a [deployment](https://vercel.com/changelog/manually-create-deployments-by-commit-or-branch-in-the-dashboard) on Vercel. If content updates do not work check whether the Space ID and Access token are configured correctly.
 
-- **Change code** by pushing changes via Git to the Github repository or directly editing on Github. Changes on `develop` branch -> preview deployment, changes on `main` -> live production deployment
+- **Change website design** by pushing code changes via Git to the Github repository or directly editing on Github. Changes on `develop` branch -> preview deployment, changes on `main` -> live production deployment. 
 
-- **DNS & Domain** the domain is registered on https://kas.all-inkl.com. There you need to set the type A record value under Tools > DNS-Settings to the IP that Vercel tells you. Vercel will only show that IP if the configuration mismatches, otherwise everything should be in order. You can check the domain configuration on Vercel under https://vercel.com/chris-poulles-website/chris-poulles-website/settings/domains
+- **DNS & Domain** while the site is hosted on Vercel, the domain is registered on https://kas.all-inkl.com. There you need to set the type A record value under Tools > DNS-Settings to the IP that Vercel tells you. Vercel will only show that IP if the configuration mismatches, otherwise everything should be in order. You can check the domain configuration on Vercel under https://vercel.com/chris-poulles-website/chris-poulles-website/settings/domains
